@@ -1,0 +1,28 @@
+@baseurl = http://127.0.0.1:5500
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NDM1OTEyODAsImV4cCI6MTc0MzY3NzY4MH0.oTAH8BTAM6gtvZxHHRui5g2bYQrpR5swNV5Xc64epBI
+
+###
+POST {{baseurl}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+
+###
+POST {{baseurl}}/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+###
+GET {{baseurl}}/api/auth/profile HTTP/1.1
+
+###
+GET {{baseurl}}/api/users HTTP/1.1
+Authorization: Bearer {{token}}
