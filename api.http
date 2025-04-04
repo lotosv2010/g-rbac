@@ -1,5 +1,5 @@
 @baseurl = http://127.0.0.1:5500
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NDM1OTEyODAsImV4cCI6MTc0MzY3NzY4MH0.oTAH8BTAM6gtvZxHHRui5g2bYQrpR5swNV5Xc64epBI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AMTYzLmNvbSIsImlhdCI6MTc0MzcyNjk4MywiZXhwIjoxNzQzODEzMzgzfQ.WMsT-ANqRw6i97oRQiNKDqaPjpDRQq1TMa4Ryiox0oA
 
 ###
 POST {{baseurl}}/api/auth/login HTTP/1.1

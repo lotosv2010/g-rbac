@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 
 // 加载环境变量
 dotenv.config();
-const JWT_SECRET: string = 'your_jwt_secret_key_here' // process.env.JWT_SECRET || 'your_jwt_secret_key_here';
-const JWT_EXPIRES_IN: string = '1d' // process.env.JWT_EXPIRES_IN || '1d';
+const JWT_SECRET: string = process.env.JWT_SECRET || 'your_jwt_secret_key_here';
+const JWT_EXPIRES_IN: string = process.env.JWT_EXPIRES_IN || '1d';
 
 /**
  * 生成JWT令牌

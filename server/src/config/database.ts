@@ -7,11 +7,11 @@ dotenv.config();
 // 数据库连接配置
 export const AppDataSource = new DataSource({
   type: 'mysql',
-  host: '127.0.0.1',
+  host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT || '3306'),
-  username: 'root',
-  password: 'root123456',
-  database: 'rbac_system',
+  username: process.env.DB_USERNAME || 'root',
+  password: process.env.DB_PASSWORD || 'root123456',
+  database: process.env.DB_DATABASE || 'rbac_system',
   synchronize: process.env.NODE_ENV === 'development', // 开发环境下自动同步数据库结构
   logging: process.env.NODE_ENV === 'development',
   entities: [path.join(__dirname, '../models/**/*.{js,ts}')],

@@ -22,7 +22,10 @@ initializeDatabase()
     
     // 中间件
     app.use(helmet()); // Helmet安全Headers
-    app.use(cors());
+    app.use(cors({
+      origin: process.env.CORS_ORIGIN,
+      credentials: true
+    }));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(morgan('dev')); // 日志
