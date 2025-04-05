@@ -6,6 +6,7 @@ import UserManagement from '../pages/UserManagement';
 import RoleManagement from '../pages/RoleManagement';
 import PermissionManagement from '../pages/PermissionManagement';
 import NotFound from '../pages/NotFound';
+import RoleRoute from '../components/RoleRoute';
 
 /**
  * 路由配置
@@ -22,22 +23,34 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Dashboard />,
+        element: <RoleRoute role={["admin", "user"]}><Dashboard /></RoleRoute>,
       },
       {
         path: 'management',
         children: [
           {
             path: 'users',
-            element: <UserManagement />,
+            element: (
+              <RoleRoute role={["admin"]}>
+                <UserManagement />
+              </RoleRoute>
+            ),
           },
           {
             path: 'roles',
-            element: <RoleManagement />,
+            element: (
+              <RoleRoute role={["admin"]}>
+                <RoleManagement />
+              </RoleRoute>
+            ),
           },
           {
             path: 'permissions',
-            element: <PermissionManagement />,
+            element: (
+              <RoleRoute role={["admin"]}>
+                <PermissionManagement />
+              </RoleRoute>
+            ),
           },
         ],
       },

@@ -3,6 +3,7 @@ import { Form, Input, Button, message, Card, Typography } from 'antd';
 import { UserOutlined, LockOutlined, GithubOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services';
+import { setUserRoles } from '../../utils/role';
 import styles from './index.module.less';
 
 const { Title, Text } = Typography;
@@ -21,16 +22,21 @@ const Login: React.FC = () => {
   const handleSubmit = async (values: { username: string; password: string }) => {
     try {
       const { data } = await auth.login(values);
-      const { token } = data || {};
+      const { token, user } = data || {};
       if (token) {
         localStorage.setItem('token', token);
+        
+        // 获取用户角色信息
+        if (user?.roles) {
+          setUserRoles(user.roles);
+        }
+        
         message.success('登录成功');
         navigate('/');
       }
     } catch (error: unknown) {
-      // const errorMessage = error instanceof Error ? error.message : '未知错误';
-      // message.error(`登录失败: ${errorMessage}`);
       console.error(error);
+      message.error('登录失败');
     }
   };
 

@@ -26,6 +26,6 @@ export const getCurrentUser = async () => {
  * 退出登录
  */
 export const logout = () => {
-  localStorage.removeItem('token');
+  localStorage.clear();
   delete request.defaults.headers.common['Authorization'];
 }; 

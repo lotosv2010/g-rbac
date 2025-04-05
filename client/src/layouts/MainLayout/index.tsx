@@ -41,7 +41,7 @@ const MainLayout: React.FC = () => {
 
   // 处理退出登录
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    auth.logout();
     navigate('/login');
   };
 
